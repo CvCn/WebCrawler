@@ -148,7 +148,7 @@ public class WuBa extends JPanel
 				text.setCaretPosition(text.getText().length());
 				url = this.url+i;
 				List<String> list = singleAll(url, next);
-				int n = 0;
+				int n = 1;
 				for (int j = 0; j < list.size(); j++)
 				{
 					PreparedStatement ps = null;
@@ -179,13 +179,14 @@ public class WuBa extends JPanel
 						if(ps != null)
 							ps.close();
 					}
+					n++;
 					System.out.println("--------------------------------"+	
 							"抓取数据：" + j + "条" + 
-							"----------" + "有效数据：" +  ++n + "条" + 
+							"----------" + "有效数据：" + n + "条" + 
 							"----------" + "page:" + i + "-------------------" + "\n");
 					text.append("--------------------------------"+	
 							"抓取数据：" + j + "条" + 
-							"----------" + "有效数据：" +  ++n + "条" + 
+							"----------" + "有效数据：" + n + "条" + 
 							"----------" + "page:" + i + "-------------------" + "\n");
 					text.setCaretPosition(text.getText().length());
 					
