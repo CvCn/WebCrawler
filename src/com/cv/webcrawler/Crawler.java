@@ -48,13 +48,11 @@ public class Crawler
 			br.close();
 			
 	}
-	
-	public String crawler() throws IOException{
-		con();
-		if(web == null) return null;
+	public String crawler(String s, String patternStr){
+		if(s == null || patternStr == null) return null;
 		String str = null;
 		Pattern compile = Pattern.compile(patternStr);
-		Matcher matcher = compile.matcher(web);
+		Matcher matcher = compile.matcher(s);
 		while(matcher.find()){
 			str += matcher.group(1);
 		}
@@ -62,6 +60,11 @@ public class Crawler
 			return null;
 		else
 			return str.substring(4);
+	}
+	
+	public String crawler() throws IOException{
+		con();
+		return crawler(web, patternStr);
 	}
 	public List<String> crawlerList() throws IOException{
 		con();
